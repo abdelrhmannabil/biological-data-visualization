@@ -1,5 +1,8 @@
-# Welcome to this project!
-in this project I have used biological data to visualise it using ggplot2 package in R programming to visualize data for international publishing
+### Welcome to Abdelrhmans Portfolio!
+
+## objectives
+- Achieve work-life balance.
+- satisfy my passion towards learning machine learning and Data Analysis.
 
 
 
