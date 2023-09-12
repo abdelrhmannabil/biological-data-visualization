@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r, message=FALSE}
@@ -46,7 +46,7 @@ plot1 <- ggplot(data = data, aes(x = group, y = lab ))+
   
   
   
-  
+  plot1
 ```
 
 
@@ -83,6 +83,8 @@ plot2 <- ggplot(data= distribution, aes(x = organ, y = labs))+
         strip.placement = "outside",
         strip.text.y = element_text(size = 14 , face = "bold")) +
   ylab("Mass of Group per Mass of Organ (mg/Kg)")
+
+plot2
 ```
 
 ```{r}
@@ -124,6 +126,7 @@ print(plot1)
 print(plot2)
 dev.off()
 ```
+
 ```{r}
 setwd("D:/freelancer/data analysis/mahmoud werby/zewail project")
 
@@ -173,10 +176,7 @@ cell_viab<- ggplot(data = cell_viability, aes(x = factor(conc), y = viab)) +
   xlab("Concentration")
 
 
-
-pdf("cell viability.pdf")
 cell_viab
-dev.off()
   
 ```
 ```{r}
@@ -192,7 +192,7 @@ bal <- read_excel("BAL fluid.xlsx")
 bal$sample <- factor(bal$sample , levels = c("Untreated","Rifampicin", "Uio-66", "Rif@uio-66", "LysB/Rif@uio-66","LPS"))
 
 library(ggplot2)
-ldh_activ<- ggplot(data = bal, aes(x = sample, y = ldh_activ)) +
+ggplot(data = bal, aes(x = sample, y = ldh_activ)) +
   stat_summary(fun = "mean",geom = "bar", aes(fill = sample ), position = "dodge")+
   geom_errorbar(aes(ymin = ldh_activ - activ_sd, ymax = ldh_activ + activ_sd, color = sample ), width = 0.2) +
   theme(text = element_text(size = 14, face = "bold"),
@@ -211,9 +211,6 @@ ldh_activ<- ggplot(data = bal, aes(x = sample, y = ldh_activ)) +
 
 
 
-pdf("ldh activity.pdf")
-ldh_activ
-dev.off()
   
 ```
 
@@ -226,7 +223,7 @@ dev.off()
 bal$sample <- factor(bal$sample , levels = c("Untreated","Rifampicin", "Uio-66", "Rif@uio-66", "LysB/Rif@uio-66","LPS"))
 
 library(ggplot2)
-protein_conc<- ggplot(data = bal, aes(x = sample, y = protein_conc)) +
+ ggplot(data = bal, aes(x = sample, y = protein_conc)) +
   stat_summary(fun = "mean",geom = "bar", aes(fill = sample ), position = "dodge")+
   geom_errorbar(aes(ymin = protein_conc - conc_sd, ymax = protein_conc + conc_sd, color = sample ), width = 0.2) +
   theme(text = element_text(size = 14, face = "bold"),
@@ -245,8 +242,6 @@ protein_conc<- ggplot(data = bal, aes(x = sample, y = protein_conc)) +
 
 
 
-pdf("protein conc.pdf")
-ldh_activ
-dev.off()
+
   
 ```
